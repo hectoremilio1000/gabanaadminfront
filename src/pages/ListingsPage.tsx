@@ -7,7 +7,6 @@ import { ListingsHeader } from "../components/listings/ListingsHeader";
 import { ListingsStats } from "../components/listings/ListingsStats";
 import { ListingsTable } from "../components/listings/ListingsTable";
 import { ListingModal } from "../components/listings/ListingModal";
-import { ListingPhotosModal } from "../components/listings/ListingPhotosModal";
 
 export default function ListingsPage() {
   const [data, setData] = useState<ListingDTO[]>([]);
@@ -16,9 +15,6 @@ export default function ListingsPage() {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalMode, setModalMode] = useState<"create" | "edit">("create");
   const [editingListing, setEditingListing] = useState<ListingDTO | null>(null);
-
-  const [photosModalOpen, setPhotosModalOpen] = useState(false);
-  const [photosListing, setPhotosListing] = useState<ListingDTO | null>(null);
 
   const load = useCallback(async () => {
     try {
@@ -71,17 +67,13 @@ export default function ListingsPage() {
   };
 
   const handleModalSuccess = (listing: ListingDTO) => {
+    // Lo usamos aunque sea para debug, así TS no se queja
+    console.debug("Listing guardado", listing.id);
+
     setModalOpen(false);
     load();
 
     // Siempre que se guarda (crear o editar) abrimos el modal de fotos
-    setPhotosListing(listing);
-    setPhotosModalOpen(true);
-  };
-
-  const handlePhotosClose = () => {
-    setPhotosModalOpen(false);
-    setPhotosListing(null);
   };
 
   return (
