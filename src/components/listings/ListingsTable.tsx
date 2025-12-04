@@ -1,15 +1,13 @@
 // /Users/hectoremilio/Proyectos/vite/gabana-admin/src/components/listings/ListingsTable.tsx
-import { Button, Space, Table, Tag, Tooltip } from "antd";
+import { Button, Space, Table, Tag } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import type { ListingDTO } from "../../types/listing";
-import { PictureOutlined } from "@ant-design/icons";
 
 type Props = {
   data: ListingDTO[];
   loading: boolean;
   onDelete: (id: string) => void;
   onEdit: (listing: ListingDTO) => void;
-  onManagePhotos: (listing: ListingDTO) => void;
 };
 
 export const ListingsTable: React.FC<Props> = ({
@@ -17,7 +15,6 @@ export const ListingsTable: React.FC<Props> = ({
   loading,
   onDelete,
   onEdit,
-  onManagePhotos,
 }) => {
   const columns: ColumnsType<ListingDTO> = [
     {
@@ -104,13 +101,6 @@ export const ListingsTable: React.FC<Props> = ({
       width: 210,
       render: (_, record) => (
         <Space size="small">
-          {/* <Tooltip title="Gestionar fotos">
-            <Button
-              size="small"
-              icon={<PictureOutlined />}
-              onClick={() => onManagePhotos(record)}
-            />
-          </Tooltip> */}
           <Button
             size="small"
             type="default"

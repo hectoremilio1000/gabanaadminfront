@@ -157,7 +157,7 @@ export const ListingModal: React.FC<Props> = ({
               className="w-full"
               min={0}
               step={100000}
-              placeholder={35000000}
+              placeholder="35000000"
             />
           </Form.Item>
 
