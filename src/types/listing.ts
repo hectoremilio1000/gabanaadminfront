@@ -4,6 +4,8 @@ export type ListingDTO = {
   title: string;
   priceLabel: string;
   address: string;
+  formattedAddress?: string | null;
+  placeId?: string | null;
   zone: string;
   badges: string[];
   highlights: string[];
@@ -33,6 +35,8 @@ export type ListingPayload = {
   highlights?: string[];
   lat?: number | null;
   lng?: number | null;
+  formattedAddress?: string | null;
+  placeId?: string | null;
   status?: "draft" | "published" | "archived";
 };
 

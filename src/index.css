@@ -5,3 +5,8 @@
 body {
   @apply antialiased;
 }
+
+/* Autocomplete de Google Maps sobre modales */
+.pac-container {
+  z-index: 2000 !important;
+}
