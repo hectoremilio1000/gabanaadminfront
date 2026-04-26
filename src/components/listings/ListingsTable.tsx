@@ -58,13 +58,50 @@ export const ListingsTable: React.FC<Props> = ({
       ),
     },
     {
+      title: "Operación",
+      dataIndex: "operationType",
+      key: "operationType",
+      width: 100,
+      render: (val: string | null) =>
+        val ? (
+          <Tag color={val === "venta" ? "blue" : "geekblue"}>
+            {val === "venta" ? "Venta" : "Renta"}
+          </Tag>
+        ) : (
+          <span className="text-xs text-slate-400">-</span>
+        ),
+    },
+    {
+      title: "Tipo",
+      dataIndex: "propertyType",
+      key: "propertyType",
+      width: 130,
+      render: (val: string | null) =>
+        val ? (
+          <span className="text-xs capitalize text-slate-600">
+            {val.replace(/_/g, " ")}
+          </span>
+        ) : (
+          <span className="text-xs text-slate-400">-</span>
+        ),
+    },
+    {
       title: "Zona",
       dataIndex: "zone",
       key: "zone",
-      render: (val) => (
-        <Tag color="blue" className="px-2">
-          {val}
-        </Tag>
+      render: (val, record) => (
+        <div className="flex flex-col">
+          <Tag color="blue" className="px-2 self-start">
+            {val}
+          </Tag>
+          {record.state && (
+            <span className="text-[11px] text-slate-400 mt-0.5">
+              {record.municipality
+                ? `${record.municipality}, ${record.state}`
+                : record.state}
+            </span>
+          )}
+        </div>
       ),
     },
     {

@@ -1,9 +1,20 @@
 // src/api/listings.ts
 import api from "./client";
-import type { ListingDTO, ListingPayload } from "../types/listing";
+import type {
+  ListingDTO,
+  ListingPayload,
+  ListingsListResponse,
+  ListingsSearchParams,
+} from "../types/listing";
 
-export async function fetchListings(): Promise<ListingDTO[]> {
-  const { data } = await api.get<ListingDTO[]>("/listings");
+/**
+ * Sprint 1 — el endpoint público devuelve `{data, meta}`.
+ * Aceptamos params para filtrar y paginar; sin params devuelve la primera página.
+ */
+export async function fetchListings(
+  params?: ListingsSearchParams
+): Promise<ListingsListResponse> {
+  const { data } = await api.get<ListingsListResponse>("/listings", { params });
   return data;
 }
 
