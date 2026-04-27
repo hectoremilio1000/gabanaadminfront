@@ -1,3 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any --
+ * Google Maps SDK types are not installed (no @types/google.maps). Las refs
+ * del mapa, el autocomplete y los payloads del Form de antd se tipan como
+ * `any`. Se difiere a Sprint 7 (limpieza de calidad) instalar los typings y
+ * sustituir todos los `any`. */
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
   Modal,

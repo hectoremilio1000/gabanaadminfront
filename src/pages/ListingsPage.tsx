@@ -41,9 +41,10 @@ export default function ListingsPage() {
       await deleteListing(id);
       message.success("Listing eliminado");
       load();
-    } catch (err: any) {
+    } catch (err) {
       console.error(err);
-      message.error(err?.response?.data?.error || "No se pudo eliminar");
+      const apiErr = err as { response?: { data?: { error?: string } } };
+      message.error(apiErr?.response?.data?.error || "No se pudo eliminar");
     }
   };
 
