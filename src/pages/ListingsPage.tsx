@@ -19,8 +19,10 @@ export default function ListingsPage() {
   const load = useCallback(async () => {
     try {
       setLoading(true);
-      const rows = await fetchListings();
-      setData(rows);
+      // Sprint 1: el endpoint público devuelve {data, meta}; pedimos hasta 100
+      // por página para cubrir el inventario inicial sin paginar en admin todavía.
+      const res = await fetchListings({ per_page: 100 });
+      setData(res.data);
     } catch (err) {
       console.error(err);
       message.error("Error cargando listings");
@@ -39,9 +41,10 @@ export default function ListingsPage() {
       await deleteListing(id);
       message.success("Listing eliminado");
       load();
-    } catch (err: any) {
+    } catch (err) {
       console.error(err);
-      message.error(err?.response?.data?.error || "No se pudo eliminar");
+      const apiErr = err as { response?: { data?: { error?: string } } };
+      message.error(apiErr?.response?.data?.error || "No se pudo eliminar");
     }
   };
 

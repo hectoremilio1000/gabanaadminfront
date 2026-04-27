@@ -6,6 +6,9 @@ import { ConfigProvider } from "antd";
 import LoginPage from "./pages/LoginPage";
 import ListingsPage from "./pages/ListingsPage";
 import UsersPage from "./pages/UsersPage";
+import LeadsPage from "./pages/LeadsPage";
+import VerificationPage from "./pages/VerificationPage";
+import BillingPage from "./pages/BillingPage";
 import PrivateLayout from "./layouts/PrivateLayout";
 import "./index.css";
 
@@ -28,6 +31,46 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
             element={
               <PrivateLayout>
                 <UsersPage />
+              </PrivateLayout>
+            }
+          />
+          <Route
+            path="/leads"
+            element={
+              <PrivateLayout>
+                <LeadsPage />
+              </PrivateLayout>
+            }
+          />
+          <Route
+            path="/verificacion"
+            element={
+              <PrivateLayout>
+                <VerificationPage />
+              </PrivateLayout>
+            }
+          />
+          <Route
+            path="/billing"
+            element={
+              <PrivateLayout>
+                <BillingPage />
+              </PrivateLayout>
+            }
+          />
+          <Route
+            path="/billing/success"
+            element={
+              <PrivateLayout>
+                <BillingPage />
+              </PrivateLayout>
+            }
+          />
+          <Route
+            path="/billing/cancel"
+            element={
+              <PrivateLayout>
+                <BillingPage />
               </PrivateLayout>
             }
           />
