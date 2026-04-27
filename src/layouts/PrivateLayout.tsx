@@ -4,6 +4,8 @@ import {
   ApartmentOutlined,
   DownOutlined,
   ContactsOutlined,
+  SafetyCertificateOutlined,
+  CreditCardOutlined,
 } from "@ant-design/icons";
 import { Navigate, useNavigate } from "react-router-dom";
 import { getCurrentUser, logout } from "../api/auth";
@@ -41,6 +43,18 @@ export default function PrivateLayout({ children }: PrivateLayoutProps) {
       label: "Leads",
       onClick: () => navigate("/leads"),
       icon: <ContactsOutlined />,
+    },
+    {
+      key: "verification",
+      label: "Verificación",
+      onClick: () => navigate("/verificacion"),
+      icon: <SafetyCertificateOutlined />,
+    },
+    {
+      key: "billing",
+      label: "Suscripción",
+      onClick: () => navigate("/billing"),
+      icon: <CreditCardOutlined />,
     },
     {
       key: "users",
