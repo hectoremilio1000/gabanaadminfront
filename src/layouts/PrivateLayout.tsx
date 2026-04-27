@@ -3,6 +3,7 @@ import {
   LogoutOutlined,
   ApartmentOutlined,
   DownOutlined,
+  ContactsOutlined,
 } from "@ant-design/icons";
 import { Navigate, useNavigate } from "react-router-dom";
 import { getCurrentUser, logout } from "../api/auth";
@@ -34,6 +35,12 @@ export default function PrivateLayout({ children }: PrivateLayoutProps) {
       label: "Listings",
       onClick: () => navigate("/"),
       icon: <ApartmentOutlined />,
+    },
+    {
+      key: "leads",
+      label: "Leads",
+      onClick: () => navigate("/leads"),
+      icon: <ContactsOutlined />,
     },
     {
       key: "users",

@@ -6,6 +6,7 @@ import { ConfigProvider } from "antd";
 import LoginPage from "./pages/LoginPage";
 import ListingsPage from "./pages/ListingsPage";
 import UsersPage from "./pages/UsersPage";
+import LeadsPage from "./pages/LeadsPage";
 import PrivateLayout from "./layouts/PrivateLayout";
 import "./index.css";
 
@@ -28,6 +29,14 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
             element={
               <PrivateLayout>
                 <UsersPage />
+              </PrivateLayout>
+            }
+          />
+          <Route
+            path="/leads"
+            element={
+              <PrivateLayout>
+                <LeadsPage />
               </PrivateLayout>
             }
           />
